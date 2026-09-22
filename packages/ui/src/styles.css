@@ -7,6 +7,7 @@
 @source "../../../node_modules/streamdown/dist/*.js"; /* 显式扫描 streamdown 的运行时类名 */
 
 @plugin "@tailwindcss/typography";
+@plugin "../lucide-colors.mjs";
 
 /*  KaTeX 会同时输出 MathML 辅助层和 HTML 视觉层；缺少 katex CSS 时两层都会显示，
  * 行内公式和块级公式就会看起来“渲染一遍又普通文本一遍”。 */
@@ -255,6 +256,7 @@ body {
   --color-foreground: var(--color-neutral-700);
   --color-foreground-subtle: color-mix(in oklab, var(--color-neutral-700) 60%, transparent);
   --color-foreground-subtlest: color-mix(in oklab, var(--color-neutral-700) 40%, transparent);
+  --lucide-subtlest-opacity: 0.4;
   --color-foreground-inverse: var(--color-white);
   --color-success: var(--color-green-600);
   --color-success-foreground: var(--color-foreground-inverse);
@@ -408,6 +410,7 @@ body {
   --color-foreground: var(--color-neutral-200);
   --color-foreground-subtle: color-mix(in oklab, var(--color-neutral-200) 60%, transparent);
   --color-foreground-subtlest: color-mix(in oklab, var(--color-neutral-200) 30%, transparent);
+  --lucide-subtlest-opacity: 0.3;
   --color-foreground-inverse: var(--color-white);
   --color-success: var(--color-green-500);
   --color-success-foreground: var(--color-foreground-inverse);
@@ -553,6 +556,7 @@ body {
   --color-foreground: var(--color-neutral-800);
   --color-foreground-subtle: color-mix(in oklab, var(--color-neutral-800) 60%, transparent);
   --color-foreground-subtlest: color-mix(in oklab, var(--color-neutral-800) 40%, transparent);
+  --lucide-subtlest-opacity: 0.4;
   --color-foreground-inverse: #ffffff;
   --color-success: #1e8a3e;
   --color-success-foreground: #ffffff;
@@ -698,6 +702,7 @@ body {
   --color-foreground: var(--color-neutral-300);
   --color-foreground-subtle: color-mix(in oklab, var(--color-neutral-300) 60%, transparent);
   --color-foreground-subtlest: color-mix(in oklab, var(--color-neutral-300) 30%, transparent);
+  --lucide-subtlest-opacity: 0.3;
   --color-foreground-inverse: #000000;
   --color-success: #46bf72;
   --color-success-foreground: #000000;
