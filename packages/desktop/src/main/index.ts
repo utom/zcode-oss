@@ -277,19 +277,15 @@ process.on("unhandledRejection", (reason) => {
   logger.error("unhandledRejection:", reason);
 });
 
-const iconPath =
-  process.platform === "win32"
-    ? app.isPackaged
-      ? join(process.resourcesPath, "icon_windows.png")
-      : join(import.meta.dirname, "../../build/icon_windows.png")
-    : app.isPackaged
-      ? join(process.resourcesPath, "icon.png")
-      : join(import.meta.dirname, "../../build/icon.png");
+// 开发实例需要与正式应用清晰区分；按打包状态选择图标，连接生产服务的 dev 也使用开发图标。
+const iconPath = app.isPackaged
+  ? join(process.resourcesPath, process.platform === "win32" ? "icon_windows.png" : "icon.png")
+  : join(import.meta.dirname, "../../build/icon-dev.png");
 const linuxDesktopIntegrationIconPath =
   process.platform === "linux"
     ? app.isPackaged
       ? join(process.resourcesPath, "icon_512x512.png")
-      : join(import.meta.dirname, "../../build/icons/512x512.png")
+      : iconPath
     : iconPath;
 let currentApplicationLocale: Locale = DEFAULT_LOCALE;
 let closeToTrayOnWindows = true;
